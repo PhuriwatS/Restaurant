@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Header, BillForm } from './features'
+import { Header } from './common'
+import { BillForm } from './features'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Header />
         <BillForm />
       </div>
