@@ -7,7 +7,6 @@ import { NoOfCustomer, PaymentDetail, AllPromotion } from './index.js'
 class BillForm extends Component {
   render() {
     const { billForm, promotionForm, actions } = this.props
-    console.log(billForm, promotionForm)
     return (
       <div id='billForm' className='billFormWrapper'>
         <NoOfCustomer action={propData => actions.priceChange(propData)} customerNum={billForm.customer} />

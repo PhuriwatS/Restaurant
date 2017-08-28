@@ -16,7 +16,6 @@ class PaymentDetail extends Component {
 
   render() {
     const { billStore, promotionStore, action } = this.props
-    console.log(billStore)
     const discountPrice = this.generateDiscount(billStore, promotionStore)
     const totalPrice = billStore.price - discountPrice
 
@@ -32,24 +31,12 @@ class PaymentDetail extends Component {
           <p>Amount: <span className='floatRight dbUnderline bold'>{totalPrice}</span></p>
         </div>
         <div 
-          className='paymentBtn paymentBtnHover'  
-          onClick={() => action.setPayBillValue(
-            { 
-              customer: billStore.customer,
-              price: billStore.price,
-              discount: discountPrice, 
-              total: totalPrice 
-            }
-          )}>
-          Pay Bill
-        </div>
-        <div 
           className='paymentBtn cancelBtnHover' 
           onClick={() => {
             action.setDefaultValuePromotion()
             action.setDefaultValueGeneral()
           }}>
-          Cancel
+          Clear
         </div>
       </div>
     )
