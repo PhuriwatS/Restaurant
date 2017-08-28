@@ -20,8 +20,20 @@ const generateOversixthousand = () => ({
     type: 'OVERSIXTHOUSAND'
 })
 
-const generateDefaultValue = () => ({
-    type: 'DEFAULTVALUE'
+const generateDefaultValuePromotion = () => ({
+    type: 'DEFAULT_VALUE_PROMOTION'
+})
+
+const generateDefaultValueGeneral = () => ({
+    type: 'DEFAULT_VALUE_GENERAL'
+})
+
+const generatePayBillValue = prop => ({
+    type: 'PAY_BILL_VALUE',
+    customer: prop.customer,
+    price: prop.price,
+    discount: prop.discount,
+    totalPrice: prop.total
 })
 
 export const priceChange = prop => (dispatch) => {
@@ -44,6 +56,14 @@ export const promotionOversixthousand = () => (dispatch) => {
     dispatch(generateOversixthousand())
 }
 
-export const setDefaultValue = () => (dispatch) => {
-    dispatch(generateDefaultValue())
+export const setDefaultValuePromotion = () => (dispatch) => {
+    dispatch(generateDefaultValuePromotion())
+}
+
+export const setDefaultValueGeneral = () => (dispatch) => {
+    dispatch(generateDefaultValueGeneral())
+}
+
+export const setPayBillValue = prop => (dispatch) => {
+    dispatch(generatePayBillValue(prop))
 }

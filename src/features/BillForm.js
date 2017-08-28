@@ -10,7 +10,7 @@ class BillForm extends Component {
     console.log(billForm, promotionForm)
     return (
       <div id='billForm' className='billFormWrapper'>
-        <NoOfCustomer action={propData => actions.priceChange(propData)} />
+        <NoOfCustomer action={propData => actions.priceChange(propData)} customerNum={billForm.customer} />
         <AllPromotion promotionStore={promotionForm} action={actions} />
         <PaymentDetail billStore={billForm} promotionStore={promotionForm} action={actions} />
       </div>

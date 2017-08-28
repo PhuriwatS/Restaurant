@@ -17,6 +17,7 @@ class NoOfCustomer extends Component {
             name='noOfCustomers' 
             className='noOfCustomerInput' 
             onChange={(e) => this.handlePrice(e.target.value)}
+            value={this.props.customerNum}
           />
         </div>
       </div>

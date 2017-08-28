@@ -52,7 +52,7 @@ const promotionReducer = (state = initState, action) => {
       return { ...initState, active: { ...initState.luckytwo, promotionNo: 3 } }
     case 'OVERSIXTHOUSAND':
       return { ...initState, active: { ...initState.oversixthousand, promotionNo: 4 } }
-    case 'DEFAULTVALUE':
+    case 'DEFAULT_VALUE_PROMOTION':
       return { ...initState }
     default:
       return state
