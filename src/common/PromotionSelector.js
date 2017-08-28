@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 class PromotionSelector extends Component {  
   render() {
-    const { name, detail, promotionHandler } = this.props
+    const { name, detail, promotionHandler, isActived } = this.props
 
     return (
       <div className='PromotionSelector'>
-        <a onClick={promotionHandler()}>
+        <a className={isActived} onClick={promotionHandler()}>
           <div>
             <i className='fa fa-gift fa-2x' aria-hidden='true'></i>
             <br />

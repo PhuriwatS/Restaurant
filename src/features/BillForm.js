@@ -11,7 +11,7 @@ class BillForm extends Component {
     return (
       <div id='billForm' className='billFormWrapper'>
         <NoOfCustomer action={propData => actions.priceChange(propData)} />
-        <AllPromotion action={actions} />
+        <AllPromotion promotionStore={promotionForm} action={actions} />
         <PaymentDetail billStore={billForm} promotionStore={promotionForm} action={actions} />
       </div>
     )

@@ -31,7 +31,7 @@ class PaymentDetail extends Component {
           <p>Amount: <span className='floatRight dbUnderline bold'>{totalPrice}</span></p>
         </div>
         <div className='paymentBtn paymentBtnHover'>Pay Bill</div>
-        <div className='paymentBtn cancelBtnHover' onClick={() => action.setDefaultValue}>Cancel</div>
+        <div className='paymentBtn cancelBtnHover' onClick={() => action.setDefaultValue()}>Cancel Coupon</div>
       </div>
     )
   }

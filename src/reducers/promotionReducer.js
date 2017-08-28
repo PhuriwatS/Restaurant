@@ -37,20 +37,21 @@ let initState = {
     rules: {
       customerNum: 0,
       basePrice: 0
-    }
+    },
+    promotionNo: 0
   }
 }
 
 const promotionReducer = (state = initState, action) => {
   switch (action.type) {
     case 'LUCKYONE':
-      return { ...initState, active: { ...initState.luckyone } }
+      return { ...initState, active: { ...initState.luckyone, promotionNo: 1 } }
     case 'FOURPAYTHREE':
-      return { ...initState, active: { ...initState.fourpaythree } }
+      return { ...initState, active: { ...initState.fourpaythree, promotionNo: 2 } }
     case 'LUCKYTWO':
-      return { ...initState, active: { ...initState.luckytwo } }
+      return { ...initState, active: { ...initState.luckytwo, promotionNo: 3 } }
     case 'OVERSIXTHOUSAND':
-      return { ...initState, active: { ...initState.oversixthousand } }
+      return { ...initState, active: { ...initState.oversixthousand, promotionNo: 4 } }
     case 'DEFAULTVALUE':
       return { ...initState }
     default:
