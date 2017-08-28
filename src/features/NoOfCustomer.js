@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NumericInput from 'react-numeric-input'
 
 class NoOfCustomer extends Component {
   handlePrice(input) {
@@ -12,11 +13,12 @@ class NoOfCustomer extends Component {
       <div className='billSection'>
         <div className='noOfCustomerWrapper'>
           No. of customers: 
-          <input 
-            type='number' 
-            name='noOfCustomers' 
-            className='noOfCustomerInput' 
-            onChange={(e) => this.handlePrice(e.target.value)}
+          <NumericInput
+            name='noOfCustomers'
+            min={0}
+            max={60}
+            step={1}
+            onChange={(value) => this.handlePrice(value)}
             value={this.props.customerNum}
           />
         </div>
