@@ -10,7 +10,7 @@ const restaurantReducer = (state = initState, action) => {
     case 'GENERATE_PRICE':
       return { ...initState, customer:action.customer, price: action.price }
     case 'PAY_BILL_VALUE':
-    const { customer, price, discount, totalPrice } = action
+      const { customer, price, discount, totalPrice } = action
       return { 
         ...initState, 
         customer,
