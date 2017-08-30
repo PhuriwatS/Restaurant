@@ -4,6 +4,7 @@ OVERALL
 HEADER
 BILL FORM
 PAYMENT DETAIL
+PROMOTION MGT FORM 
 MEDIA768
 */
 
@@ -50,6 +51,12 @@ input:focus {
 }
 a {
   cursor: pointer;
+}
+.clear {
+  clear: both;
+}
+.alignCenter {
+  text-align: center;
 }
 
 
@@ -169,6 +176,88 @@ a {
   background-color: #38D99D;
 }
 .cancelBtnHover, .paymentBtn:hover {
+  color: #38D99D;
+  border-color: #38D99D;
+  background-color: #fff;
+}
+
+
+
+/* ===== PROMOTION MGT FORM ===== */ 
+.promotionMgtFormWrapper { 
+  width: 100%; 
+  min-height: 100vh; 
+  transition: .5s ease-in-out; 
+  background-image: url(./image/bgImage3.jpg); 
+  background-color: #fff; 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center top; 
+  background-attachment: scroll; 
+} 
+.promotionMgtSection { 
+  width: 90%; 
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  text-align: left; 
+  margin-left: 5%; 
+  margin-right: 5%; 
+} 
+.promotionMgtSection:first-child { 
+  padding-top: 40px; 
+} 
+.promotionMgtSection:last-child { 
+  padding-bottom: 40px; 
+}
+.promotionMgtBorder {
+  border: 1px solid #ec495e;
+  padding-top: 0;
+  padding-bottom: 10px;
+  height: 100%;
+  max-height: 35vh;
+  overflow: scroll;
+  text-align: center;
+}
+.rowMgt {
+  padding-top: 10px; 
+  padding-bottom: 10px;
+}
+.rowMgt:first-child { 
+  padding-top: 0; 
+} 
+.rowMgt:last-child { 
+  padding-bottom: 0; 
+}
+.widthLeft {
+  width: 40%;
+  float: left;
+  text-align: right;
+}
+.widthRight {
+  width: 53%;
+  float: left;
+  text-align: left;
+  padding-left: 2%;
+}
+.titlePromotionMgt {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+.generateBtn {
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 8px;
+  display: inline-block;
+  transition: .5s ease-out;
+  color: #fff;
+  border-color: #38D99D;
+  background-color: #38D99D;
+}
+.generateBtn:hover {
   color: #38D99D;
   border-color: #38D99D;
   background-color: #fff;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import { Header } from './common'
-import { BillForm } from './features'
+import { BillForm, PromotionMgt } from './features'
 
 class App extends Component {
   render() {
@@ -9,6 +9,7 @@ class App extends Component {
       <div className='App'>
         <Header />
         <BillForm />
+        <PromotionMgt />
       </div>
     );
   }
