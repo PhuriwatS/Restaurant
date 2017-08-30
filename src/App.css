@@ -58,6 +58,12 @@ a {
 .alignCenter {
   text-align: center;
 }
+.react-numeric-input b {
+  display: none;
+}
+.react-numeric-input input {
+  width: 90%;
+}
 
 
 
