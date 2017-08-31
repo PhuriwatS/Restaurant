@@ -64,6 +64,9 @@ a {
 .react-numeric-input input {
   width: 90%;
 }
+.overflowScroll {
+  overflow: scroll;
+}
 
 
 
@@ -221,7 +224,6 @@ a {
   padding-bottom: 10px;
   height: 100%;
   max-height: 35vh;
-  overflow: scroll;
   text-align: center;
 }
 .rowMgt {

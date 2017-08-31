@@ -11,7 +11,7 @@ class PromotionMgt extends Component {
           </div>
         </div>
         <div className='promotionMgtSection'>
-          <div className='promotionMgtBorder'>
+          <div className='promotionMgtBorder overflowScroll'>
             <PromotionMgtDetail />
           </div>
         </div>
