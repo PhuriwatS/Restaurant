@@ -1,5 +1,17 @@
-let initState = {
-  luckyone: {
+let initState = [
+  // {
+  //   active: 0,
+  //   text: '',
+  //   discount: 0,
+  //   rules: {
+  //     customerNum: 0,
+  //     basePrice: 0
+  //   },
+  //   promotionNo: 0
+  // },
+  {
+    id: 1,
+    code: 'luckyone',
     text: 'LUCKY ONE',
     discount: 15,
     rules: {
@@ -7,7 +19,9 @@ let initState = {
       basePrice: 0
     }
   },
-  fourpaythree: {
+  {
+    id: 2,
+    code: 'fourpaythree',
     text: '4PAY3',
     discount: 25,
     rules: {
@@ -15,7 +29,9 @@ let initState = {
       basePrice: 0
     }
   },
-  luckytwo: {
+  {
+    id: 3,
+    code: 'luckytwo',
     text: 'LUCKY TWO',
     discount: 20,
     rules: {
@@ -23,24 +39,17 @@ let initState = {
       basePrice: 0
     }
   },
-  oversixthousand: {
+  {
+    id: 4,
+    code: 'oversixthousand',
     text: 'OVER SIX THOUSAND',
     discount: 25,
     rules: {
       customerNum: 0,
       basePrice: 6000
     }
-  },
-  active: {
-    text: '',
-    discount: 0,
-    rules: {
-      customerNum: 0,
-      basePrice: 0
-    },
-    promotionNo: 0
   }
-}
+]
 
 const promotionReducer = (state = initState, action) => {
   switch (action.type) {
