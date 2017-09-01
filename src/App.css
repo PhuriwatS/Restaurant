@@ -151,7 +151,6 @@ a {
 }
 .PromotionSelector:hover {
   transform: scale(1.1);
-  margin-top: -10px;
 }
 .PromotionSelector>.active {
   font-weight: bold;

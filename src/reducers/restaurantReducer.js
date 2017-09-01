@@ -2,7 +2,8 @@ let initState = {
   customer: 0,
   price: 0,
   discount: 0,
-  totalPrice: 0
+  totalPrice: 0,
+  promotionActived: 0
 }
 
 const restaurantReducer = (state = initState, action) => {

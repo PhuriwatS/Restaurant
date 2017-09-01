@@ -17,7 +17,8 @@ let initState = [
     rules: {
       customerNum: 0,
       basePrice: 0
-    }
+    },
+    isActived: false
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ let initState = [
     rules: {
       customerNum: 4,
       basePrice: 0
-    }
+    },
+    isActived: false
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ let initState = [
     rules: {
       customerNum: 2,
       basePrice: 0
-    }
+    },
+    isActived: false
   },
   {
     id: 4,
@@ -47,7 +50,8 @@ let initState = [
     rules: {
       customerNum: 0,
       basePrice: 6000
-    }
+    },
+    isActived: false
   }
 ]
 
