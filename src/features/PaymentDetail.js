@@ -15,7 +15,7 @@ class PaymentDetail extends Component {
   }
 
   render() {
-    const { billStore, promotionStore, action } = this.props
+    const { billStore, action } = this.props
     //const discountPrice = this.generateDiscount(billStore, promotionStore)
     //const totalPrice = billStore.price - discountPrice
 

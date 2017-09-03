@@ -5,6 +5,7 @@ HEADER
 BILL FORM
 PAYMENT DETAIL
 PROMOTION MGT FORM 
+LIST RESERVE
 MEDIA768
 */
 
@@ -268,6 +269,25 @@ a {
   color: #38D99D;
   border-color: #38D99D;
   background-color: #fff;
+}
+
+
+
+/* ===== LIST RESERVE ===== */ 
+table {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #fff;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
 }
 
 
