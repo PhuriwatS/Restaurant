@@ -1,5 +1,6 @@
 let initState = [
   {
+    id: 1,
     code: 'LUCKYONE',
     text: 'LUCKY ONE',
     discount: 15,
@@ -9,6 +10,7 @@ let initState = [
     }
   },
   {
+    id: 2,
     code: '4PAY3',
     text: '4PAY3',
     discount: 25,
@@ -18,6 +20,7 @@ let initState = [
     }
   },
   {
+    id: 3,
     code: 'LUCKYTWO',
     text: 'LUCKY TWO',
     discount: 20,
@@ -27,6 +30,8 @@ let initState = [
     }
   },
   {
+    id: 4,
+    code: '',
     text: 'OVER SIX THOUSAND',
     discount: 25,
     rules: {
@@ -43,8 +48,7 @@ const promotionReducer = (state = initState, action) => {
     case 'GENERATE_PROMOTION':
       return [ ...state, action.prop ]
     case 'EDIT_PROMOTION':
-    console.log(action.prop, 555555);
-      return state.map(value => value.code === action.prop.code
+      return state.map(value => value.id === action.prop.id
         ? action.prop
         : value
       )

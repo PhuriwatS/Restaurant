@@ -18,7 +18,7 @@ class Payment extends Component {
   }
 
   render() {
-    const { billForm, actions, data } = this.props
+    const { actions, data } = this.props
     const tableIncreaseNum = data.tableType === 'counterBar' ? data.customers : 1
     const tableData = { tableType: data.tableType, tableIncreaseNum }
     const { price, id } = data
@@ -42,7 +42,6 @@ class Payment extends Component {
 }
 
 const mapStateToProps = state => ({
-  billForm: state.restaurantReducer,
   promotionForm: state.promotionReducer,
   tableForm: state.tableReducer
 })
