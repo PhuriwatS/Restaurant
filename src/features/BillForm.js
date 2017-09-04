@@ -1,17 +1,48 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as BillFormActions from '../actions'
-import { NoOfCustomer, PaymentDetail, AllPromotion } from './index.js'
+import * as FormActions from '../actions'
+import { NoOfCustomer, ListReserve, Payment, PromotionMgt } from './index.js'
 
 class BillForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      allData: ''
+    }
+  }
+
   render() {
-    const { billForm, promotionForm, actions } = this.props
+    const { billForm, tableForm, actions } = this.props
+    const { counterBar, tableForTwo, tableForFour, tableForEight } = tableForm
+
     return (
-      <div id='billForm' className='billFormWrapper'>
-        <NoOfCustomer action={propData => actions.priceChange(propData)} customerNum={billForm.customer} />
-        <AllPromotion promotionStore={promotionForm} action={actions} />
-        <PaymentDetail billStore={billForm} promotionStore={promotionForm} action={actions} />
+      <div>
+        <div id='billForm' className='billFormWrapper'>
+          <NoOfCustomer 
+            action={(propData, tableData) => {
+              actions.reserveTable(propData)
+              actions.updateDecreaseTable(tableData)
+              }
+            } 
+            generateId={billForm.length+1}
+            table={tableForm}
+          />
+          <p><strong>Counter bar:</strong> ({counterBar}/12 chairs) </p>
+          <p><strong>Table for 2 seats:</strong> ({tableForTwo}/4 tables) </p>
+          <p><strong>Table for 4 seats:</strong> ({tableForFour}/6 tables) </p>
+          <p><strong>Table for 8 seats:</strong> ({tableForEight}/2 tables) </p>
+          <ListReserve store={billForm} getData={data => this.setState({allData: data})} clearData={(data) => {
+              actions.cancelReserveTable(data.id)
+
+              const tableIncreaseNum = data.tableType === 'counterBar' ? data.customers : 1
+              const tableData = { tableType: data.tableType, tableIncreaseNum }
+              
+              actions.updateIncreaseTable(tableData)
+            }} />
+        </div>
+        <Payment data={this.state.allData} />
+        <PromotionMgt />
       </div>
     )
   }
@@ -19,11 +50,12 @@ class BillForm extends Component {
 
 const mapStateToProps = state => ({
   billForm: state.restaurantReducer,
-  promotionForm: state.promotionReducer
-})// get data from store
+  promotionForm: state.promotionReducer,
+  tableForm: state.tableReducer
+})
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(BillFormActions, dispatch),
-}); // Connect Action
+  actions: bindActionCreators(FormActions, dispatch),
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(BillForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BillForm)

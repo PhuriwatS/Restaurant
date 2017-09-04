@@ -15,20 +15,20 @@ class PaymentDetail extends Component {
   }
 
   render() {
-    const { billStore, promotionStore, action } = this.props
-    const discountPrice = this.generateDiscount(billStore, promotionStore)
-    const totalPrice = billStore.price - discountPrice
+    const { billStore, action } = this.props
+    //const discountPrice = this.generateDiscount(billStore, promotionStore)
+    //const totalPrice = billStore.price - discountPrice
 
     return (
       <div className='billSection'>
         <label className='customLabel'>Payment Detail</label>
         <div className='PaymentDetailWrapper'>
           <p>Price (459฿/person): <span className='floatRight'>{billStore.price}</span></p>
-          <p>Discount: <span className='floatRight underline'>({discountPrice})</span></p>
+          {/* <p>Discount: <span className='floatRight underline'>({discountPrice})</span></p> */}
           <ul>
-            <li>{promotionStore.active.text}</li>
+            {/* <li>{promotionStore.active.text}</li> */}
           </ul>
-          <p>Amount: <span className='floatRight dbUnderline bold'>{totalPrice}</span></p>
+          {/* <p>Amount: <span className='floatRight dbUnderline bold'>{totalPrice}</span></p> */}
         </div>
         <div 
           className='paymentBtn cancelBtnHover' 
