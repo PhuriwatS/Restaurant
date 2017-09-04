@@ -20,6 +20,11 @@ const generateUpdateDecreaseTable = prop => ({
     reserveCount: prop.tableDecreaseNum
 })
 
+const generatePromotion = prop => ({
+    type: 'GENERATE_PROMOTION',
+    prop
+})
+
 const generatePrice = prop => ({
     type: 'GENERATE_PRICE',
     customer: prop.customers,
@@ -72,6 +77,10 @@ export const updateIncreaseTable = prop => (dispatch) => {
 
 export const updateDecreaseTable = prop => (dispatch) => {
     dispatch(generateUpdateDecreaseTable(prop))
+}
+
+export const createPromotion = prop => (dispatch) => {
+    dispatch(generatePromotion(prop))
 }
 
 export const priceChange = prop => (dispatch) => {

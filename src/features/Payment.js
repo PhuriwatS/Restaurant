@@ -23,7 +23,7 @@ class Payment extends Component {
     const { discount } = this.state
     const amount = price * (100-discount)/100
     return (
-      <div id='payment' className='billFormWrapper'>
+      <div id='payment' className='paymentFormWrapper'>
         <div className='billSection'>
           <p><strong>Price(฿):</strong> {!price ? 0 : price} </p>
           <p><strong>Discount(%):</strong> {!discount ? 0 : discount}</p>

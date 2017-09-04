@@ -40,6 +40,8 @@ const promotionReducer = (state = initState, action) => {
   switch (action.type) {
     case 'DEFAULT_VALUE_PROMOTION':
       return { ...initState }
+    case 'GENERATE_PROMOTION':
+      return [ ...state, action.prop ]
     default:
       return state
   }

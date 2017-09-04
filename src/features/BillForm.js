@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as FormActions from '../actions'
-import { NoOfCustomer, ListReserve, Payment } from './index.js'
+import { NoOfCustomer, ListReserve, Payment, PromotionMgt } from './index.js'
 
 class BillForm extends Component {
   constructor(props) {
@@ -35,6 +35,7 @@ class BillForm extends Component {
           <ListReserve store={billForm} getData={data => this.setState({allData: data})} />
         </div>
         <Payment data={this.state.allData} />
+        <PromotionMgt />
       </div>
     )
   }
