@@ -73,7 +73,8 @@ class NoOfCustomer extends Component {
             value={customers}
           />
         </div>
-        <button onClick={() => this.handlePrice()}>reserve button</button>
+        <br />
+        <a className='generateBtn' onClick={() => this.handlePrice()}>reserve button</a>
       </div>
     )
   }

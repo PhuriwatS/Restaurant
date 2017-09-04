@@ -3,16 +3,18 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as FormActions from '../actions'
 
-class Payment extends Component {
+class Payment extends Component {  
   render() {
-    const { billForm, actions } = this.props
-
+    const { billForm, actions, data } = this.props
+    const { price, discount } = data
+    const amount = price - discount
     return (
       <div id='payment' className='billFormWrapper'>
         <div className='billSection'>
-          <p>Price: </p>
-          <p>Discount: </p>
-          <p>Amount: </p>
+          <p><strong>Price(฿):</strong> {!price ? 0 : price} </p>
+          <p><strong>Discount(฿):</strong> {!discount ? 0 : discount}</p>
+          <p><strong>Amount(฿):</strong> {!amount ? 0 : amount}</p>
+          <p><strong>Coupon:</strong> <input type='text' /></p>
         </div>
       </div>
     )

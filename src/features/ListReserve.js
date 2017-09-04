@@ -5,25 +5,25 @@ class ListReserve extends Component {
     return (
       <div className='billSection'>
         <table>
-          <tr>
-            <th>ID</th>
-            <th>Customer</th>
-            <th>Table Type</th>
-            <th>PAY</th>
-          </tr>
           <tbody>
-          {
-            this.props.store.map((value, index) => {
-              return (
-                <tr key={index}>
-                  <td>{value.id}</td>
-                  <td>{value.customers}</td>
-                  <td>{value.tableType}</td>
-                  <td><a href='#payment' onClick={() => this.props.getData(value)}>PAY</a></td>
-                </tr>
-              )
-            })
-          }
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Table Type</th>
+              <th>PAY</th>
+            </tr>
+            {
+              this.props.store.map((value, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{value.id}</td>
+                    <td>{value.customers}</td>
+                    <td>{value.tableType}</td>
+                    <td><a href='#payment' onClick={() => this.props.getData(value)}>PAY</a></td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>
