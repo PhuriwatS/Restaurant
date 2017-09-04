@@ -9,6 +9,7 @@ class PromotionMgt extends Component {
     super(props);
     this.state = {
       promoData: {
+        id: this.props.promotionForm.length+1,
         code: "",
         text: "",
         discount: 0,
@@ -24,6 +25,7 @@ class PromotionMgt extends Component {
   getEdit(oldValue) {
     this.setState({
       promoData: {
+        id: oldValue.id,
         code: oldValue.code,
         text: oldValue.text,
         discount: oldValue.discount,
@@ -37,7 +39,8 @@ class PromotionMgt extends Component {
   }
 
   render() {
-    const { promotionForm, actions } = this.props;
+    const { promotionForm, actions } = this.props
+    console.log(this.state);
     return (
       <div className="promotionMgtFormWrapper">
         <div className="promotionMgtSection">
@@ -158,8 +161,9 @@ class PromotionMgt extends Component {
                     className="generateBtn"
                     onClick={() => {
                       actions.editPromotion(this.state.promoData);
-                      {/* this.setState({
+                      this.setState({
                         promoData: {
+                          id: this.props.promotionForm.length+1,
                           code: "",
                           text: "",
                           discount: 0,
@@ -169,7 +173,7 @@ class PromotionMgt extends Component {
                           }
                         },
                         action: "add"
-                      }); */}
+                      });
                     }}
                   >
                     Edit Promotion
@@ -189,7 +193,6 @@ class PromotionMgt extends Component {
                     <th>Text</th>
                     <th>Discount(%)</th>
                     <th>EDIT</th>
-                    <th>CANCEL</th>
                   </tr>
                   {promotionForm.map((value, index) => {
                     return (
@@ -198,11 +201,6 @@ class PromotionMgt extends Component {
                         <td>{value.discount}</td>
                         <td>
                           <a onClick={() => this.getEdit(value)}>EDIT</a>
-                        </td>
-                        <td>
-                          <a onClick={() => actions.clearPromotion(value)}>
-                            CANCEL
-                          </a>
                         </td>
                       </tr>
                     );
