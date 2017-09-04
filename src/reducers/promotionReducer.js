@@ -38,14 +38,6 @@ let initState = [
 
 const promotionReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'LUCKYONE':
-    return { ...initState }
-    case 'FOURPAYTHREE':
-    return { ...initState }
-    case 'LUCKYTWO':
-    return { ...initState }
-    case 'OVERSIXTHOUSAND':
-    return { ...initState }
     case 'DEFAULT_VALUE_PROMOTION':
       return { ...initState }
     default:

@@ -11,6 +11,7 @@ class ListReserve extends Component {
               <th>Customer</th>
               <th>Table Type</th>
               <th>PAY</th>
+              <th>CANCEL</th>
             </tr>
             {
               this.props.store.map((value, index) => {
@@ -19,7 +20,8 @@ class ListReserve extends Component {
                     <td>{value.id}</td>
                     <td>{value.customers}</td>
                     <td>{value.tableType}</td>
-                    <td><a href='#payment' onClick={() => this.props.getData(value)}>PAY</a></td>
+                    <td><a href='#payment' onClick={() => this.props.getData(value)}>{value.status==='unpaid' ? 'PAY' : null}</a></td>
+                    <td><a href='#payment' onClick={() => this.props.clearData(value)}>CANCEL</a></td>
                   </tr>
                 )
               })
