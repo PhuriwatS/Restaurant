@@ -12,16 +12,17 @@ class Payment extends Component {
   }
 
   checkDiscount(coupon) {
-    const { promotionForm } = this.props
+    const { promotionForm, data } = this.props
+    const { price, customers } = data
     const [getCoupon] = promotionForm.filter(value => coupon === value.code)
-    getCoupon ? this.setState({discount: getCoupon.discount}) : 0
+    getCoupon && price>getCoupon.rules.basePrice && customers>getCoupon.rules.customerNum ? this.setState({discount: getCoupon.discount}) : 0
   }
 
   render() {
     const { actions, data } = this.props
     const tableIncreaseNum = data.tableType === 'counterBar' ? data.customers : 1
     const tableData = { tableType: data.tableType, tableIncreaseNum }
-    const { price, id } = data
+    const { id, price, customers } = data
     const { discount } = this.state
     const amount = price * (100-discount)/100
     return (

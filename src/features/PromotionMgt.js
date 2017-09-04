@@ -40,7 +40,6 @@ class PromotionMgt extends Component {
 
   render() {
     const { promotionForm, actions } = this.props
-    console.log(this.state);
     return (
       <div className="promotionMgtFormWrapper">
         <div className="promotionMgtSection">
