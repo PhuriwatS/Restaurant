@@ -283,6 +283,11 @@ table {
   border-color: #38D99D;
   background-color: #fff;
 }
+.listPromotionTable {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 
 

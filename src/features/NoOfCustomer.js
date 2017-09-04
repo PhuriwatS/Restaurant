@@ -31,7 +31,7 @@ class NoOfCustomer extends Component {
     if (!tableType) {
       alert('table full')
     } else {
-      const tableDecreaseNum = tableType==='counterBar' ? customers : 1
+      const tableDecreaseNum = tableType === 'counterBar' ? customers : 1
       const tableData = { tableType, tableDecreaseNum }
       this.setState({
         price,

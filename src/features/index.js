@@ -7,5 +7,6 @@ import PromotionMgtForm from './PromotionMgtForm'
 import PromotionMgtDetail from './PromotionMgtDetail'
 import ListReserve from './ListReserve'
 import Payment from './Payment'
+import ListPromotion from './ListPromotion';
 
-export { BillForm, NoOfCustomer, PaymentDetail, AllPromotion, PromotionMgt, PromotionMgtForm, PromotionMgtDetail, ListReserve, Payment }
+export { BillForm, NoOfCustomer, PaymentDetail, AllPromotion, PromotionMgt, PromotionMgtForm, PromotionMgtDetail, ListReserve, Payment, ListPromotion }

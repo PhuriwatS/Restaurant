@@ -42,6 +42,12 @@ const promotionReducer = (state = initState, action) => {
       return { ...initState }
     case 'GENERATE_PROMOTION':
       return [ ...state, action.prop ]
+    case 'EDIT_PROMOTION':
+    console.log(action.prop, 555555);
+      return state.map(value => value.code === action.prop.code
+        ? action.prop
+        : value
+      )
     default:
       return state
   }

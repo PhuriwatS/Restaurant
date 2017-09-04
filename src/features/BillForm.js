@@ -32,7 +32,14 @@ class BillForm extends Component {
           <p><strong>Table for 2 seats:</strong> ({tableForTwo}/4 tables) </p>
           <p><strong>Table for 4 seats:</strong> ({tableForFour}/6 tables) </p>
           <p><strong>Table for 8 seats:</strong> ({tableForEight}/2 tables) </p>
-          <ListReserve store={billForm} getData={data => this.setState({allData: data})} />
+          <ListReserve store={billForm} getData={data => this.setState({allData: data})} clearData={(data) => {
+              actions.cancelReserveTable(data.id)
+
+              const tableIncreaseNum = data.tableType === 'counterBar' ? data.customers : 1
+              const tableData = { tableType: data.tableType, tableIncreaseNum }
+              
+              actions.updateIncreaseTable(tableData)
+            }} />
         </div>
         <Payment data={this.state.allData} />
         <PromotionMgt />

@@ -3,6 +3,11 @@ const generateReserveTable = prop => ({
     prop
 })
 
+const generateCancelReserveTable = prop => ({
+    type: 'CANCEL_RESERVE_TABLE',
+    prop
+})
+
 const generateUpdateReserveTable = prop => ({
     type: 'UPDATE_RESERVE_TABLE',
     prop
@@ -22,6 +27,11 @@ const generateUpdateDecreaseTable = prop => ({
 
 const generatePromotion = prop => ({
     type: 'GENERATE_PROMOTION',
+    prop
+})
+
+const generateEditPromotion = prop => ({
+    type: 'EDIT_PROMOTION',
     prop
 })
 
@@ -67,6 +77,10 @@ export const reserveTable = prop => (dispatch) => {
     dispatch(generateReserveTable(prop))
 }
 
+export const cancelReserveTable = prop => (dispatch) => {
+    dispatch(generateCancelReserveTable(prop))
+}
+
 export const updateReserveTable = prop => (dispatch) => {
     dispatch(generateUpdateReserveTable(prop))
 }
@@ -81,6 +95,10 @@ export const updateDecreaseTable = prop => (dispatch) => {
 
 export const createPromotion = prop => (dispatch) => {
     dispatch(generatePromotion(prop))
+}
+
+export const editPromotion = prop => (dispatch) => {
+    dispatch(generateEditPromotion(prop))
 }
 
 export const priceChange = prop => (dispatch) => {

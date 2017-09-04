@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 class ListReserve extends Component {
   render() {
+    const filterActive = this.props.store.filter(value => !value.isDeleted)
     return (
       <div className='billSection'>
         <table>
@@ -14,14 +15,14 @@ class ListReserve extends Component {
               <th>CANCEL</th>
             </tr>
             {
-              this.props.store.map((value, index) => {
+              filterActive.map((value, index) => {
                 return (
                   <tr key={index}>
                     <td>{value.id}</td>
                     <td>{value.customers}</td>
                     <td>{value.tableType}</td>
-                    <td><a href='#payment' onClick={() => this.props.getData(value)}>{value.status==='unpaid' ? 'PAY' : null}</a></td>
-                    <td><a href='#payment' onClick={() => this.props.clearData(value)}>CANCEL</a></td>
+                    <td><a href='#payment' onClick={() => this.props.getData(value)}>{value.status === 'unpaid' ? 'PAY' : null}</a></td>
+                    <td><a onClick={() => this.props.clearData(value)}>CANCEL</a></td>
                   </tr>
                 )
               })

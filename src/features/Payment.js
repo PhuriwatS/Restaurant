@@ -13,12 +13,14 @@ class Payment extends Component {
 
   checkDiscount(coupon) {
     const { promotionForm } = this.props
-    const [getCoupon] = promotionForm.filter(value => coupon===value.code)
+    const [getCoupon] = promotionForm.filter(value => coupon === value.code)
     getCoupon ? this.setState({discount: getCoupon.discount}) : 0
   }
 
   render() {
     const { billForm, actions, data } = this.props
+    const tableIncreaseNum = data.tableType === 'counterBar' ? data.customers : 1
+    const tableData = { tableType: data.tableType, tableIncreaseNum }
     const { price, id } = data
     const { discount } = this.state
     const amount = price * (100-discount)/100
@@ -29,7 +31,10 @@ class Payment extends Component {
           <p><strong>Discount(%):</strong> {!discount ? 0 : discount}</p>
           <p><strong>Amount(฿):</strong> {!amount ? 0 : amount}</p>
           <p><strong>Coupon:</strong> <input type='text' onBlur={coupon => this.checkDiscount(coupon.target.value)} /></p>
-          <a className='generateBtn' onClick={() => actions.updateReserveTable(id)}>PAY BILL</a>
+          <a className='generateBtn' onClick={() => {
+            actions.updateReserveTable(id)
+            actions.updateIncreaseTable(tableData)
+            }}>PAY BILL</a>
         </div>
       </div>
     )

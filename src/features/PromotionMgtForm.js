@@ -7,20 +7,40 @@ import * as FormActions from '../actions'
 class PromotionMgtForm extends Component {
   constructor(props) {
     super(props)
+    console.log(props);
     this.state = {
-      code: '',
-      text: '',
-      discount: 0,
-      rules: {
-        customerNum: 0,
-        basePrice: 0
-      }
+      promoData: {
+        code: props.data ? props.data.promoData.code : '',
+        text: '',
+        discount: 0,
+        rules: {
+          customerNum: 0,
+          basePrice: 0
+        }
+      },
+      action: 'add'
     }
   }
 
+  // componentWillReceiveProps(nextState) {
+  //   const getPromoData = nextState.data.promoData
+  //   console.log(getPromoData);
+  //   this.setState({
+  //     promoData: {
+  //       code: getPromoData.code,
+  //       text: getPromoData.text,
+  //       discount: getPromoData.discount,
+  //       rules: {
+  //         customerNum: getPromoData.rules.customerNum,
+  //         basePrice: getPromoData.rules.basePrice
+  //       }
+  //     },
+  //     action: 'edit'
+  //   })
+  // }
+
   render() {
     const { actions } = this.props
-    console.log(this.props.promotionForm);
     
     return (
       <div>
@@ -30,7 +50,14 @@ class PromotionMgtForm extends Component {
             Code:
           </div>
           <div className='widthRight'>
-            <input type='text' onBlur={value => this.setState({code: value.target.value})} />
+            <input type='text' 
+              onChange={e => this.setState({
+                promoData: {
+                  ...this.state.promoData,
+                  code: e.target.value
+                }
+              })} 
+              value={this.state.promoData.code} />
           </div>
         </div>
         <div className='clear'></div>
@@ -39,7 +66,14 @@ class PromotionMgtForm extends Component {
             Text:
           </div>
           <div className='widthRight'>
-            <input type='text' onBlur={value => this.setState({text: value.target.value})} />
+            <input type='text' 
+              onChange={e => this.setState({
+                promoData: {
+                  ...this.state.promoData,
+                  text: e.target.value
+                }
+              })} 
+              value={this.state.promoData.text} />
           </div>
         </div>
         <div className='clear'></div>
@@ -53,8 +87,13 @@ class PromotionMgtForm extends Component {
               min={1}
               max={100}
               step={1}
-              onBlur={value => this.setState({discount: parseInt(value.target.value, 10)})}
-              value={this.state.discount}
+              onChange={value => this.setState({
+                promoData: {
+                  ...this.state.promoData,
+                  discount: parseInt(value, 10)
+                }
+              })}
+              value={this.state.promoData.discount}
             />
           </div>
         </div>
@@ -69,8 +108,16 @@ class PromotionMgtForm extends Component {
               min={0}
               max={100}
               step={1}
-              onBlur={value => this.setState({rules: { ...this.state.rules, customerNum: parseInt(value.target.value, 10)}})}
-              value={this.state.rules.customerNum}
+              onChange={value => this.setState({
+                promoData: {
+                  ...this.state.promoData,
+                  rules: { 
+                    ...this.state.promoData.rules, 
+                    customerNum: parseInt(value, 10)
+                  }
+                }
+              })}
+              value={this.state.promoData.rules.customerNum}
             />
           </div>
         </div>
@@ -85,14 +132,29 @@ class PromotionMgtForm extends Component {
               min={0}
               max={1000000}
               step={1}
-              onBlur={value => this.setState({rules: { ...this.state.rules, basePrice: parseInt(value.target.value, 10)}})}
-              value={this.state.rules.basePrice}
+              onChange={value => this.setState({
+                promoData: {
+                  ...this.state.promoData,
+                  rules: { 
+                    ...this.state.promoData.rules, 
+                    basePrice: parseInt(value, 10)
+                  }
+                }
+              })}
+              value={this.state.promoData.rules.basePrice}
             />
           </div>
         </div>
         <div className='clear'></div>
         <div className='rowMgt'>
-          <div className="generateBtn" onClick={() => actions.createPromotion(this.state)}>Generate Promotion</div>
+          {
+            this.state.action === 'add' ? 
+              <div className="generateBtn" onClick={() => actions.createPromotion(this.state.promoData)}>Generate Promotion</div> :
+              <div className="generateBtn" onClick={() => {
+                this.setState({ action: 'add' })
+                  actions.editPromotion(this.state.promoData)}
+                }>Edit Promotion</div>
+          }
         </div>
       </div>
     )

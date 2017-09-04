@@ -11,8 +11,6 @@ const tableReducer = (state = initState, action) => {
       return { ...state, [action.prop]: state[action.prop] + action.reserveCount }
     case 'UPDATE_DECREASE_TABLE':
       return { ...state, [action.prop]: state[action.prop] - action.reserveCount }
-    case 'UPDATE_RESERVE_TABLE':
-      return [ action.prop ]
     default:
       return state
   }

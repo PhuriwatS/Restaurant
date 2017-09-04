@@ -11,8 +11,13 @@ const restaurantReducer = (state = initState, action) => {
     case 'RESERVE_TABLE':
       return [ ...state, action.prop]
     case 'UPDATE_RESERVE_TABLE':
-      return state.map(value => value.id===action.prop
-        ? { ...value, status: 'paid'}
+      return state.map(value => value.id === action.prop
+        ? { ...value, status: 'paid' }
+        : value
+      )
+    case 'CANCEL_RESERVE_TABLE':
+      return state.map(value => value.id === action.prop
+        ? { ...value, isDeleted: true }
         : value
       )
     default:
